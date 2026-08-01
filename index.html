@@ -1,7 +1,437 @@
-<h1>Alex's Personal Website</h1>
-<p>Welcome to my personal website! Here you can find information about me, 
-<ul>
-    <li>About Me</li>
-    <li>Projects</li>
-    <li>Contact</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mathematics and Computer Science student at UC San Diego — software engineering, algorithms, research, and competitive programming.">
+  <meta name="author" content="[YOUR NAME]">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0b">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[YOUR NAME] — Mathematics & Computer Science">
+  <meta property="og:description" content="Incoming UC San Diego student exploring mathematics, algorithms, AI, and theoretical computer science.">
+  <meta property="og:url" content="https://example.com/">
+  <!-- <meta property="og:image" content="assets/images/og-image.png"> -->
+
+  <title>[YOUR NAME] | Mathematics & Computer Science</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Hero background canvas -->
+  <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Home">
+        <span class="logo-mark">&lt;/&gt;</span>
+        <span class="logo-text">[YOUR NAME]</span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#education">Education</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#achievements">Achievements</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#research">Research</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+          <span class="theme-icon theme-icon--dark" aria-hidden="true">◐</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero section" id="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="hero-eyebrow mono">UC San Diego · Math &amp; CS · Class of 2029</p>
+          <h1 class="hero-title" id="hero-heading">[YOUR NAME]</h1>
+          <p class="hero-role">Mathematics &amp; Computer Science Student | Aspiring Software Engineer | Research Enthusiast</p>
+          <p class="hero-subtitle">Incoming UC San Diego student exploring mathematics, algorithms, artificial intelligence, and theoretical computer science.</p>
+          <p class="hero-intro">
+            I build software with the same rigor I apply to proof-based mathematics—clear abstractions, careful complexity analysis, and systems that scale from competition problems to real applications.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="assets/resume.pdf" download>Download Resume</a>
+            <a class="btn btn-ghost" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-reveal-delay="1">
+          <div class="profile-frame glass">
+            <div class="profile-placeholder" role="img" aria-label="Professional profile photo placeholder">
+              <span class="mono">assets/images/profile.jpg</span>
+            </div>
+            <div class="profile-meta">
+              <span class="mono status-dot">● available for internships &amp; research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-hint mono" href="#about" aria-label="Scroll to about section">scroll</a>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">01 / about</span>
+          <h2 class="section-title" id="about-heading">Engineering mindset, mathematical foundation</h2>
+        </header>
+        <div class="about-grid">
+          <div class="glass card reveal">
+            <p>
+              I am an incoming student at the University of California, San Diego, pursuing a joint focus in Mathematics and Computer Science. My work sits at the intersection of rigorous theory and practical systems: I care about why algorithms work, not only that they pass tests.
+            </p>
+            <p>
+              Competitive mathematics and programming shaped how I think—decomposing hard problems, proving correctness informally before coding, and iterating under time constraints. I am especially interested in algorithms, discrete structures, and the ways mathematical models inform modern AI and software architecture.
+            </p>
+          </div>
+          <div class="about-stats reveal" data-reveal-delay="1">
+            <div class="stat glass">
+              <span class="stat-value mono">Math + CS</span>
+              <span class="stat-label">Dual focus at UCSD</span>
+            </div>
+            <div class="stat glass">
+              <span class="stat-value mono">Algorithms</span>
+              <span class="stat-label">Core technical interest</span>
+            </div>
+            <div class="stat glass">
+              <span class="stat-value mono">Research</span>
+              <span class="stat-label">Theory → applications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section section--alt" id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">02 / education</span>
+          <h2 class="section-title" id="education-heading">Academic trajectory</h2>
+        </header>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <article class="glass card timeline-card">
+              <time class="mono timeline-date" datetime="2025/2029">2025 — 2029 (expected)</time>
+              <h3 class="timeline-title">University of California, San Diego</h3>
+              <p class="timeline-degree">B.S. Mathematics + Computer Science</p>
+              <p class="timeline-focus">Algorithms, discrete mathematics, linear algebra, probability, software engineering fundamentals, and research-oriented coursework.</p>
+            </article>
+          </li>
+          <li class="timeline-item reveal" data-reveal-delay="1">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <article class="glass card timeline-card">
+              <time class="mono timeline-date" datetime="2019/2025">2019 — 2025</time>
+              <h3 class="timeline-title">Hamden Hall Country Day School</h3>
+              <p class="timeline-degree">College preparatory curriculum</p>
+              <p class="timeline-focus">Advanced mathematics, physics, computer science, and leadership through academic clubs and athletics.</p>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">03 / skills</span>
+          <h2 class="section-title" id="skills-heading">Technical stack</h2>
+        </header>
+        <div class="skills-grid">
+          <article class="glass card skill-category reveal">
+            <h3 class="skill-category-title mono">Programming</h3>
+            <ul class="skill-bars" data-skills='[{"name":"Python","level":90},{"name":"C++","level":85},{"name":"Java","level":80},{"name":"JavaScript","level":82},{"name":"HTML/CSS","level":88}]'></ul>
+          </article>
+          <article class="glass card skill-category reveal" data-reveal-delay="1">
+            <h3 class="skill-category-title mono">Mathematics</h3>
+            <div class="tag-cloud">
+              <span class="tag">Number Theory</span>
+              <span class="tag">Combinatorics</span>
+              <span class="tag">Graph Theory</span>
+              <span class="tag">Linear Algebra</span>
+              <span class="tag">Calculus</span>
+              <span class="tag">Probability</span>
+            </div>
+          </article>
+          <article class="glass card skill-category reveal" data-reveal-delay="2">
+            <h3 class="skill-category-title mono">Computer Science</h3>
+            <div class="tag-cloud">
+              <span class="tag">Algorithms</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Competitive Programming</span>
+              <span class="tag">Artificial Intelligence</span>
+              <span class="tag tag--muted">Machine Learning</span>
+            </div>
+          </article>
+          <article class="glass card skill-category reveal" data-reveal-delay="3">
+            <h3 class="skill-category-title mono">Tools</h3>
+            <div class="tag-cloud">
+              <span class="tag">Git</span>
+              <span class="tag">Linux</span>
+              <span class="tag">VS Code</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section section--alt" id="achievements" aria-labelledby="achievements-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">04 / achievements</span>
+          <h2 class="section-title" id="achievements-heading">Competition &amp; recognition dashboard</h2>
+        </header>
+        <div class="dashboard-filters reveal" role="tablist" aria-label="Achievement categories">
+          <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="filter-btn" data-filter="mathematics" role="tab" aria-selected="false">Mathematics</button>
+          <button type="button" class="filter-btn" data-filter="programming" role="tab" aria-selected="false">Programming</button>
+          <button type="button" class="filter-btn" data-filter="international" role="tab" aria-selected="false">International</button>
+          <button type="button" class="filter-btn" data-filter="physics" role="tab" aria-selected="false">Physics</button>
+        </div>
+        <div class="achievement-grid" id="achievement-grid">
+          <article class="glass card achievement-card reveal" data-category="mathematics">
+            <span class="achievement-cat mono">Mathematics</span>
+            <h3 class="achievement-title">AIME Qualification</h3>
+            <p class="achievement-desc">Qualified for the American Invitational Mathematics Examination through AMC performance.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="mathematics">
+            <span class="achievement-cat mono">Mathematics</span>
+            <h3 class="achievement-title">AMC School Top Score</h3>
+            <p class="achievement-desc">Highest score at school on AMC contests, reflecting consistent olympiad-style preparation.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="mathematics">
+            <span class="achievement-cat mono">Mathematics</span>
+            <h3 class="achievement-title">AMC 10 / AMC 12</h3>
+            <p class="achievement-desc">Strong results across AMC 10 and AMC 12 series competitions.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="mathematics">
+            <span class="achievement-cat mono">Mathematics</span>
+            <h3 class="achievement-title">AwesomeMath Level 1 / 2 / 3</h3>
+            <p class="achievement-desc">Completed progressive AwesomeMath curriculum levels in advanced problem solving.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="programming">
+            <span class="achievement-cat mono">Programming</span>
+            <h3 class="achievement-title">USACO Silver</h3>
+            <p class="achievement-desc">USA Computing Olympiad Silver division — algorithmic implementation under contest constraints.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="international">
+            <span class="achievement-cat mono">International</span>
+            <h3 class="achievement-title">IMC Global Gold</h3>
+            <p class="achievement-desc">International Mathematics Competition — Global Gold recognition.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="international">
+            <span class="achievement-cat mono">International</span>
+            <h3 class="achievement-title">CAT Intermediate Distinction</h3>
+            <p class="achievement-desc">Cambridge Assessment / CAT Intermediate level with Distinction.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="physics">
+            <span class="achievement-cat mono">Physics</span>
+            <h3 class="achievement-title">Physics Bowl</h3>
+            <p class="achievement-desc">Competitive Physics Bowl participation and team-level achievements.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="mathematics">
+            <span class="achievement-cat mono">Mathematics</span>
+            <h3 class="achievement-title">Connecticut Mathematics Competition</h3>
+            <p class="achievement-desc">State-level mathematics competition experience.</p>
+          </article>
+          <article class="glass card achievement-card reveal" data-category="mathematics">
+            <span class="achievement-cat mono">Mathematics</span>
+            <h3 class="achievement-title">ARML Participation</h3>
+            <p class="achievement-desc">American Regions Mathematics League — team-based national contest.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">05 / experience</span>
+          <h2 class="section-title" id="experience-heading">Leadership &amp; activities</h2>
+        </header>
+        <div class="experience-grid">
+          <article class="glass card experience-card reveal">
+            <h3 class="experience-org">Math Club</h3>
+            <p class="experience-role mono">Leader / Head Trainer</p>
+            <p class="experience-desc">Designed problem sets, organized discussions, and encouraged collaborative mathematical problem solving.</p>
+          </article>
+          <article class="glass card experience-card reveal" data-reveal-delay="1">
+            <h3 class="experience-org">Physics Bowl Club</h3>
+            <p class="experience-role mono">Assistant Coach &amp; Mentor</p>
+            <p class="experience-desc">Supported team preparation, problem review, and mentoring for Physics Bowl competitions.</p>
+          </article>
+          <article class="glass card experience-card reveal" data-reveal-delay="2">
+            <h3 class="experience-org">School Chorus Ensemble</h3>
+            <p class="experience-role mono">Lead Tenor</p>
+            <p class="experience-desc">Performed as lead tenor; developed discipline, rehearsal rigor, and ensemble collaboration.</p>
+          </article>
+          <article class="glass card experience-card reveal" data-reveal-delay="3">
+            <h3 class="experience-org">Chinese Culture Club</h3>
+            <p class="experience-role mono">VP Internal / Event Coordinator</p>
+            <p class="experience-desc">Coordinated internal operations and cultural events for the school community.</p>
+          </article>
+          <article class="glass card experience-card reveal" data-reveal-delay="1">
+            <h3 class="experience-org">School Yearbook</h3>
+            <p class="experience-role mono">Senior Editor</p>
+            <p class="experience-desc">Edited content, managed deadlines, and maintained publication quality standards.</p>
+          </article>
+          <article class="glass card experience-card reveal" data-reveal-delay="2">
+            <h3 class="experience-org">Soccer Team</h3>
+            <p class="experience-role mono">Goalkeeper / Defensive Leader</p>
+            <p class="experience-desc">Led defensive coordination as goalkeeper; communication and performance under pressure.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects (rendered by JS) -->
+    <section class="section section--alt" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">06 / projects</span>
+          <h2 class="section-title" id="projects-heading">Selected work</h2>
+          <p class="section-lead">Placeholder portfolio entries—replace with repositories and demos as projects ship.</p>
+        </header>
+        <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section class="section research-section" id="research" aria-labelledby="research-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label mono">07 / research</span>
+          <h2 class="section-title" id="research-heading">Research profile</h2>
+        </header>
+        <div class="research-layout reveal">
+          <div class="research-panel glass">
+            <p class="research-intro">
+              I am building toward research roles where proof techniques, complexity theory, and experimentation meet—whether analyzing algorithms, studying discrete structures, or applying mathematical models in AI systems.
+            </p>
+            <ul class="research-list">
+              <li><span class="mono index">01</span> Algorithms</li>
+              <li><span class="mono index">02</span> Theoretical Computer Science</li>
+              <li><span class="mono index">03</span> Mathematics</li>
+              <li><span class="mono index">04</span> Artificial Intelligence</li>
+              <li><span class="mono index">05</span> Computational Mathematics</li>
+            </ul>
+          </div>
+          <div class="research-viz glass" aria-hidden="true">
+            <svg class="research-graph" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.1)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.5)"/>
+                </linearGradient>
+              </defs>
+              <g class="graph-nodes" stroke="rgba(255,255,255,0.2)" stroke-width="1">
+                <line x1="80" y1="140" x2="200" y2="60"/>
+                <line x1="80" y1="140" x2="200" y2="140"/>
+                <line x1="80" y1="140" x2="200" y2="220"/>
+                <line x1="200" y1="60" x2="320" y2="100"/>
+                <line x1="200" y1="140" x2="320" y2="140"/>
+                <line x1="200" y1="220" x2="320" y2="180"/>
+              </g>
+              <circle cx="80" cy="140" r="6" fill="#fff"/>
+              <circle cx="200" cy="60" r="5" fill="rgba(255,255,255,0.7)"/>
+              <circle cx="200" cy="140" r="5" fill="rgba(255,255,255,0.7)"/>
+              <circle cx="200" cy="220" r="5" fill="rgba(255,255,255,0.7)"/>
+              <circle cx="320" cy="100" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="320" cy="140" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="320" cy="180" r="4" fill="rgba(255,255,255,0.5)"/>
+            </svg>
+            <p class="mono research-caption">theory → computation → systems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact-layout">
+        <header class="section-header reveal">
+          <span class="section-label mono">08 / contact</span>
+          <h2 class="section-title" id="contact-heading">Get in touch</h2>
+          <p class="section-lead">Open to internships, research collaborations, and technical conversations.</p>
+        </header>
+
+        <div class="contact-grid">
+          <address class="contact-info glass card reveal not-italic">
+            <ul class="contact-list">
+              <li>
+                <span class="mono contact-key">Email</span>
+                <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+              </li>
+              <li>
+                <span class="mono contact-key">GitHub</span>
+                <a href="[YOUR GITHUB]" target="_blank" rel="noopener noreferrer">[YOUR GITHUB]</a>
+              </li>
+              <li>
+                <span class="mono contact-key">LinkedIn</span>
+                <a href="[YOUR LINKEDIN]" target="_blank" rel="noopener noreferrer">[YOUR LINKEDIN]</a>
+              </li>
+              <li>
+                <span class="mono contact-key">Location</span>
+                <span>[YOUR LOCATION]</span>
+              </li>
+            </ul>
+          </address>
+
+          <form class="contact-form glass card reveal" id="contact-form" data-reveal-delay="1" novalidate>
+            <div class="form-field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-note mono" id="form-note" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 [YOUR NAME]</p>
+      <p class="footer-tech mono">Built with HTML / CSS / JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
