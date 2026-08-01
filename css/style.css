@@ -186,6 +186,67 @@ a:hover {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   opacity: 0.7;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logo.is-morphing .logo-mark,
+.logo.is-alt .logo-mark {
+  opacity: 1;
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.logo-text {
+  display: inline-block;
+  min-width: 6.75rem;
+  perspective: 400px;
+}
+
+.logo-text-inner {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.logo-char {
+  display: inline-block;
+  transform-origin: center bottom;
+  will-change: transform, opacity, filter;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease,
+    filter 0.4s ease;
+  transition-delay: calc(var(--char-i, 0) * 35ms);
+}
+
+.logo-char--exit {
+  opacity: 0;
+  transform: translate(var(--exit-x, 0), var(--exit-y, -12px)) rotate(var(--exit-r, 0deg)) scale(0.35);
+  filter: blur(6px);
+}
+
+.logo-char--enter {
+  opacity: 0;
+  transform: translateY(18px) rotateX(75deg) scale(0.55);
+  filter: blur(8px);
+}
+
+.logo-char--scramble {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  opacity: 0.85;
+  transform: translateY(-2px) scale(1.05);
+  filter: blur(0);
+  transition-duration: 0.08s;
+  transition-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-char {
+    transition: none;
+  }
+
+  .logo-mark {
+    transition: none;
+  }
 }
 
 .nav-toggle {

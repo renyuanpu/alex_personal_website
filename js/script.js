@@ -431,10 +431,143 @@
   }
 
   /* --------------------------------------------------------------------------
+     Logo name morph: Alex Pu ↔ Renyuan Pu
+     -------------------------------------------------------------------------- */
+  function initLogoMorph() {
+    const logo = document.querySelector(".logo");
+    const container = document.getElementById("logo-name");
+    if (!logo || !container) return;
+
+    const inner = container.querySelector(".logo-text-inner");
+    const defaultName = container.getAttribute("data-name-default") || "Alex Pu";
+    const altName = container.getAttribute("data-name-alt") || "Renyuan Pu";
+    const scrambleChars = "01λ∑∫<>/{}#@&";
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let showingAlt = false;
+    let isAnimating = false;
+    let hoverIntent = false;
+
+    function splitName(text) {
+      return text.split("").map((char, index) => {
+        const span = document.createElement("span");
+        span.className = "logo-char";
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.style.setProperty("--char-i", String(index));
+        return span;
+      });
+    }
+
+    function renderName(text, enterFromStart) {
+      inner.replaceChildren(...splitName(text));
+      if (!enterFromStart) return;
+
+      const chars = inner.querySelectorAll(".logo-char");
+      chars.forEach((char) => char.classList.add("logo-char--enter"));
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          chars.forEach((char) => char.classList.remove("logo-char--enter"));
+        });
+      });
+    }
+
+    function setExitMotion(chars) {
+      chars.forEach((char) => {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 10 + Math.random() * 18;
+        char.style.setProperty("--exit-x", `${Math.cos(angle) * distance}px`);
+        char.style.setProperty("--exit-y", `${Math.sin(angle) * distance - 6}px`);
+        char.style.setProperty("--exit-r", `${(Math.random() - 0.5) * 90}deg`);
+      });
+    }
+
+    function wait(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function randomScrambleString(length) {
+      let result = "";
+      for (let i = 0; i < length; i += 1) {
+        result += i > 0 && Math.random() < 0.18 ? " " : scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+      }
+      return result.trimEnd();
+    }
+
+    async function scramblePhase(targetLength) {
+      const steps = 4;
+      for (let step = 0; step < steps; step += 1) {
+        const text = randomScrambleString(targetLength);
+        inner.replaceChildren(...splitName(text));
+        inner.querySelectorAll(".logo-char").forEach((char) => char.classList.add("logo-char--scramble"));
+        await wait(55);
+      }
+    }
+
+    async function playMorph(toAlt) {
+      if (isAnimating) return;
+      isAnimating = true;
+      logo.classList.add("is-morphing");
+
+      const targetName = toAlt ? altName : defaultName;
+      const chars = inner.querySelectorAll(".logo-char");
+
+      if (!prefersReducedMotion) {
+        setExitMotion(chars);
+        chars.forEach((char) => char.classList.add("logo-char--exit"));
+        await wait(420 + chars.length * 35);
+        await scramblePhase(targetName.length);
+      }
+
+      renderName(targetName, !prefersReducedMotion);
+      showingAlt = toAlt;
+
+      logo.classList.toggle("is-alt", toAlt);
+      logo.setAttribute("aria-label", toAlt ? `Home — ${altName}` : `Home — ${defaultName}`);
+
+      if (!prefersReducedMotion) {
+        await wait(520 + targetName.length * 40);
+      }
+
+      logo.classList.remove("is-morphing");
+      isAnimating = false;
+
+      if (hoverIntent && !showingAlt) {
+        playMorph(true);
+      } else if (!hoverIntent && showingAlt) {
+        playMorph(false);
+      }
+    }
+
+    renderName(defaultName, false);
+
+    logo.addEventListener("mouseenter", () => {
+      hoverIntent = true;
+      if (!showingAlt && !isAnimating) playMorph(true);
+    });
+
+    logo.addEventListener("mouseleave", () => {
+      hoverIntent = false;
+      if (showingAlt && !isAnimating) playMorph(false);
+    });
+
+    logo.addEventListener("focusin", () => {
+      hoverIntent = true;
+      if (!showingAlt && !isAnimating) playMorph(true);
+    });
+
+    logo.addEventListener("focusout", () => {
+      hoverIntent = false;
+      if (showingAlt && !isAnimating) playMorph(false);
+    });
+  }
+
+  /* --------------------------------------------------------------------------
      Boot
      -------------------------------------------------------------------------- */
   renderProjects();
   initSkillBars();
   initAchievementFilters();
   initHeroCanvas();
+  initLogoMorph();
 })();
