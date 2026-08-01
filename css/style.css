@@ -580,6 +580,12 @@ a:hover {
   font-size: 1.25rem;
 }
 
+.timeline-location {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--color-text-dim);
+}
+
 .timeline-degree {
   margin: 0 0 var(--space-sm);
   font-weight: 500;
